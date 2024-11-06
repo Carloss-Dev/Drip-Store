@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    "README.md": true,
+    ".gitignore": true,
+    "index.html": true,
+    "eslint.config.js": true,
+    "package-lock.json": true,
+    "vite.config.js": true,
+    ".vscode": true
+  }
+}
