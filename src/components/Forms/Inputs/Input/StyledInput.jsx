@@ -37,7 +37,7 @@ const primaryIcon = css`
 `;
 
 export const StyledInput = styled.input`
-  ${({ $variant, $version }) => {
+  ${({ $variant }) => {
     switch ($variant) {
       case "primary":
         return primary;
@@ -64,6 +64,9 @@ const icon = css`
   justify-content: center;
   gap: 10px;
   flex-direction: column;
+  @media (max-width: 790px) {
+    display: none;
+  }
 `;
 
 export const StyledField = styled.div`
