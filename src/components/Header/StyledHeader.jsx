@@ -12,15 +12,29 @@ const home = css`
   background-color: ${theme.colors.white};
   height: 19.2rem;
 
+  @media (max-width: 1159px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 30px;
+  }
+
   ${MainContainer} {
     display: flex;
-    border: 1pt solid red;
     width: 100%;
     height: 70%;
     align-items: center;
     justify-content: center;
     gap: 50px;
     padding: 0 30px;
+
+    @media (max-width: 1159px) {
+      width: 95%;
+      height: 100%;
+      padding: 0;
+      justify-content: normal;
+    }
   }
   ${loginContainer} {
     display: flex;
@@ -57,6 +71,9 @@ export const Header = styled.header`
     switch ($variant) {
       case "home":
         return home;
+
+      default:
+        return null;
     }
   }}
 `;

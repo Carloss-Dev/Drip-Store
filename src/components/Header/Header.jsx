@@ -10,7 +10,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { Text } from "../Texts/Text/Text";
 import { Button } from "../Forms/Button/Button";
 import Logo from "../../../public/Logo";
-import CartIcon from "../../../public/CART-ICON";
+import CartIcon from "../../../public/Cart-Icon";
 
 export const Header = ({ variant }) => {
   const [active, setActive] = React.useState("active");
@@ -18,11 +18,11 @@ export const Header = ({ variant }) => {
   return (
     <S.Header $variant={variant}>
       <S.MainContainer>
-        <Logo />
+        <Logo style={{ minWidth: "200px" }} />
         <Input
           plh="Pesquisar Produto ..."
           sizeH="6rem"
-          width="55.9rem"
+          width="60%"
           version="icon"
           variant="primary-icon"
         >
@@ -39,8 +39,7 @@ export const Header = ({ variant }) => {
             <Link style={{ color: "inherit" }}> Cadastre-se </Link>
           </Text>
           <Button width="11.4rem" height="4rem">
-            {" "}
-            Entrar{" "}
+            Entrar
           </Button>
         </S.loginContainer>
         <S.iconContainer>
