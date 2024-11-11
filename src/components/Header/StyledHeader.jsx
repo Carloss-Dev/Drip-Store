@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import theme from "../../theme/theme";
+import { theme } from "../../theme/theme";
 
 // Elementos padrões do componente
 export const MainContainer = styled.div``;
@@ -11,15 +11,9 @@ const home = css`
   grid-column: 1 / 13;
   background-color: ${theme.colors.white};
   height: 19.2rem;
-
-  @media (max-width: 1159px) {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    padding-left: 20px;
-    gap: 30px;
+  @media (max-width: ${theme.media.md}) {
+    height: 14rem;
   }
-
   ${MainContainer} {
     display: flex;
     width: 100%;
@@ -29,34 +23,47 @@ const home = css`
     gap: 50px;
     padding: 0 30px;
 
-    @media (max-width: 1159px) {
-      width: 95%;
+    @media (max-width: ${theme.media.md}) {
       height: 100%;
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    @media (max-width: ${theme.media.xs}) {
       padding: 0;
-      justify-content: normal;
+      padding-left: 3px;
+
+      #logo {
+        min-width: 100px;
+        width: 60%;
+      }
     }
   }
   ${loginContainer} {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 27rem;
-    border: 1pt solid green;
+    width: 32rem;
 
-    @media (max-width: 1159px) {
+    @media (max-width: ${theme.media.lg}) {
+      width: 15%;
+      flex-direction: column;
+    }
+    @media (max-width: ${theme.media.md}) {
       display: none;
     }
   }
   ${iconContainer} {
-    border: 1pt solid red;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     svg:nth-child(1) {
       display: none;
     }
-    @media (max-width: 790px) {
-      width: 9rem;
+    @media (max-width: ${theme.media.md}) {
+      width: 18%;
+      max-width: 8rem;
       svg:nth-child(1) {
         display: block;
         color: ${theme.colors.lightGray2};
@@ -71,7 +78,6 @@ export const Header = styled.header`
     switch ($variant) {
       case "home":
         return home;
-
       default:
         return null;
     }

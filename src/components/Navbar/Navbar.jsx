@@ -22,11 +22,12 @@ const links = [
   },
 ];
 
-export const Navbar = ({ variant = "primary" }) => {
+export const Navbar = ({ variant = "header-common" }) => {
   const location = useLocation();
 
   return (
-    <S.Navbar $variant={variant}>
+    <S.Navbar $variant={variant} className="">
+      {variant === "header-responsive" && <Text bold={true}>Páginas</Text>}
       {links.map(({ link, path }) => (
         <Text key={link}>
           <Link

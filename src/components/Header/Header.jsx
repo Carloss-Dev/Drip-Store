@@ -9,22 +9,44 @@ import { Input } from "../Forms/Inputs/Input/Input";
 import { Navbar } from "../Navbar/Navbar";
 import { Text } from "../Texts/Text/Text";
 import { Button } from "../Forms/Button/Button";
+import { Burger } from "..//Burger/Burger";
+
 import Logo from "../../../public/Logo";
 import CartIcon from "../../../public/Cart-Icon";
 
-export const Header = ({ variant }) => {
-  const [active, setActive] = React.useState("active");
+const links = [
+  {
+    link: "Home",
+    path: "/",
+  },
+  {
+    link: "Produtos",
+    path: "/produtos",
+  },
+  {
+    link: "Categorias",
+    path: "/categorias",
+  },
+  {
+    link: "Meus Pedidos",
+    path: "/pedidos",
+  },
+];
 
+export const Header = ({ variant }) => {
   return (
     <S.Header $variant={variant}>
       <S.MainContainer>
-        <Logo style={{ minWidth: "200px" }} />
+        <Burger>
+          <Navbar variant="header-responsive" />
+        </Burger>
+        <Logo id="logo" />
         <Input
           plh="Pesquisar Produto ..."
           sizeH="6rem"
           width="60%"
           version="icon"
-          variant="primary-icon"
+          variant="primary-icon-header"
         >
           <button>
             <Icon
@@ -47,7 +69,7 @@ export const Header = ({ variant }) => {
           <CartIcon />
         </S.iconContainer>
       </S.MainContainer>
-      <Navbar />
+      <Navbar variant="header-common" />
     </S.Header>
   );
 };

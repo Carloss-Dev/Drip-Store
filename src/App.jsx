@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { AppRoutes } from "../routes/AppRoutes";
-import theme from "./theme/theme";
+import { theme } from "./theme/theme";
 
 function App() {
   return (

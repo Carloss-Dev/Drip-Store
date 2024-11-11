@@ -1,6 +1,6 @@
 // src/theme.js
 
-const theme = {
+export const theme = {
   colors: {
     darkGray: "#1F1F1F",
     darkGray2: "#474747",
@@ -27,6 +27,13 @@ const theme = {
     aqua: "#6FEEFF",
   },
   fontFamily: "Inter",
-};
 
-export default theme;
+  media: {
+    xs: "480px", // Extra Small - mobile
+    sm: "767px", // Small - extra small devices
+    md: "991px", // Medium - small tablets
+    lg: "1199px", // Large - large tablets
+    xl: "1919px", // Extra Large - desktops
+    xxl: "1920px", // Extra Extra Large - extra large desktops
+  },
+};

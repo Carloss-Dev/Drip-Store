@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import theme from "../../../../theme/theme";
+import { theme } from "../../../../theme/theme";
 
 const primary = css`
   width: 100%;
@@ -17,7 +17,7 @@ const primary = css`
   }
 `;
 
-const primaryIcon = css`
+const primaryIconHeader = css`
   width: 100%;
   position: absolute;
   z-index: 100;
@@ -41,8 +41,8 @@ export const StyledInput = styled.input`
     switch ($variant) {
       case "primary":
         return primary;
-      case "primary-icon":
-        return primaryIcon;
+      case "primary-icon-header":
+        return primaryIconHeader;
     }
   }}
   height: ${({ $height }) => $height};
@@ -64,7 +64,8 @@ const icon = css`
   justify-content: center;
   gap: 10px;
   flex-direction: column;
-  @media (max-width: 790px) {
+
+  @media (max-width: ${theme.media.md}) {
     display: none;
   }
 `;

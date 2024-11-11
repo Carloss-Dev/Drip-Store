@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import theme from "../../../theme/theme";
+import { theme } from "../../../theme/theme";
 
 const large = css`
   font-family: ${theme.fontFamily};
