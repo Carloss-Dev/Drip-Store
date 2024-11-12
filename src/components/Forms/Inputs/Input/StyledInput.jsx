@@ -70,13 +70,25 @@ const icon = css`
   }
 `;
 
+const iconResponsive = css`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+`;
+
 export const StyledField = styled.div`
   ${({ $version }) => {
     switch ($version) {
       case "icon":
         return icon;
+      case "icon-responsive":
+        return iconResponsive;
       case "normal":
         return normal;
+      default:
+        return null;
     }
   }}
   height: ${({ $sizeH }) => $sizeH};

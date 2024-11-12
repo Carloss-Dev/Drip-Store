@@ -12,13 +12,16 @@ export const OutsideArea = styled.section`
   &.open {
     display: block;
     position: fixed;
-    top: 14rem;
+    top: 11rem;
     left: 0;
     z-index: 200;
     width: 100vw;
     height: 100vh;
     background: #00000085;
     transition: 0.5s;
+    @media (min-width: ${theme.media.md}) {
+      display: none;
+    }
   }
 `;
 export const Navigation = styled.section`
@@ -31,14 +34,16 @@ export const Navigation = styled.section`
   left: -500px;
   z-index: 500;
 
-  height: calc(100vh - 10rem);
-  /* height: 100vh; */
+  height: calc(100vh - 10.9rem);
   box-shadow: -2px 46px 11px 1px ${theme.colors.darkGray};
   width: 25rem;
   background-color: ${theme.colors.white};
   transition: 0.5s;
   &.open {
     left: 0;
+  }
+  @media (min-width: ${theme.media.md}) {
+    display: none;
   }
 `;
 
@@ -94,7 +99,7 @@ export const Burger = styled.button`
     background-color: transparent;
   }
   &.open ${BottomLine} {
-    transform: rotate(-45deg) translate(6px, -5px);
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 
   @media (min-width: ${theme.media.md}) {

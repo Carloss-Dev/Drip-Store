@@ -1,0 +1,15 @@
+.search {
+  color: #cccccc;
+  cursor: pointer;
+}
+#normal-search {
+  position: absolute;
+  z-index: 200;
+  top: 13px;
+  right: 12px;
+}
+#responsive-search {
+  &.open {
+    color: #c92071;
+  }
+}

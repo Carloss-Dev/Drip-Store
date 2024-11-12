@@ -34,11 +34,13 @@ const links = [
 ];
 
 export const Header = ({ variant }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <S.Header $variant={variant}>
       <S.MainContainer>
         <Burger>
-          <Navbar variant="header-responsive" />
+          <Navbar variant="nav-responsive" />
         </Burger>
         <Logo id="logo" />
         <Input
@@ -48,13 +50,12 @@ export const Header = ({ variant }) => {
           version="icon"
           variant="primary-icon-header"
         >
-          <button>
-            <Icon
-              icon="mynaui:search"
-              width="3rem"
-              style={S.HeaderSearchStyle1}
-            />
-          </button>
+          <Icon
+            icon="mynaui:search"
+            width="3rem"
+            className="search"
+            id="normal-search"
+          />
         </Input>
         <S.loginContainer>
           <Text>
@@ -65,11 +66,33 @@ export const Header = ({ variant }) => {
           </Button>
         </S.loginContainer>
         <S.iconContainer>
-          <Icon icon="mynaui:search" width="3rem" />
-          <CartIcon />
+          <Icon
+            icon="mynaui:search"
+            width="3rem"
+            className={` search ${isOpen ? "open" : ""}`}
+            id="responsive-search"
+            onClick={() => setIsOpen(!isOpen)}
+          />
+          {/* <CartIcon /> */}
         </S.iconContainer>
       </S.MainContainer>
-      <Navbar variant="header-common" />
+      <S.AnimatedContainer className={isOpen ? "open" : ""}>
+        <Input
+          plh="Pesquisar Produto ..."
+          sizeH="6rem"
+          width="80%"
+          version="icon-responsive"
+          variant="primary-icon-header"
+        >
+          <Icon
+            icon="mynaui:search"
+            width="3rem"
+            className="search"
+            id="normal-search"
+          />
+        </Input>
+      </S.AnimatedContainer>
+      <Navbar variant="nav-common" />
     </S.Header>
   );
 };

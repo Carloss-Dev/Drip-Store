@@ -1,10 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { theme } from "../../theme/theme";
 
 // Elementos padrões do componente
 export const MainContainer = styled.div``;
 export const loginContainer = styled.div``;
 export const iconContainer = styled.div``;
+export const AnimatedContainer = styled.div``;
 
 // Estilos de Variantes
 const home = css`
@@ -12,7 +13,7 @@ const home = css`
   background-color: ${theme.colors.white};
   height: 19.2rem;
   @media (max-width: ${theme.media.md}) {
-    height: 14rem;
+    height: 11rem;
   }
   ${MainContainer} {
     display: flex;
@@ -20,8 +21,11 @@ const home = css`
     height: 70%;
     align-items: center;
     justify-content: center;
+    background-color: ${theme.colors.white};
     gap: 50px;
     padding: 0 30px;
+    position: relative;
+    z-index: 300;
 
     @media (max-width: ${theme.media.md}) {
       height: 100%;
@@ -44,7 +48,6 @@ const home = css`
     align-items: center;
     justify-content: space-between;
     width: 32rem;
-
     @media (max-width: ${theme.media.lg}) {
       width: 15%;
       flex-direction: column;
@@ -70,6 +73,22 @@ const home = css`
       }
     }
   }
+
+  ${AnimatedContainer} {
+    transform: translateY(-300%);
+    transition: 0.5s;
+    height: 10rem;
+    width: 100%;
+    background-color: ${theme.colors.white};
+    display: flex;
+    position: absolute;
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    &.open {
+      transform: translateY(0);
+    }
+  }
 `;
 
 // Definição das variantes
@@ -83,13 +102,3 @@ export const Header = styled.header`
     }
   }}
 `;
-
-// Estilos de icones
-
-export const HeaderSearchStyle1 = {
-  position: "absolute",
-  zIndex: "200",
-  color: theme.colors.lightGray2,
-  top: "13px",
-  right: "12px",
-};
