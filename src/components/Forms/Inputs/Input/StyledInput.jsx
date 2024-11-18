@@ -36,7 +36,7 @@ const primaryIconHeader = css`
   }
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   ${({ $variant }) => {
     switch ($variant) {
       case "primary":
@@ -78,7 +78,7 @@ const iconResponsive = css`
   flex-direction: column;
 `;
 
-export const StyledField = styled.div`
+export const Field = styled.div`
   ${({ $version }) => {
     switch ($version) {
       case "icon":

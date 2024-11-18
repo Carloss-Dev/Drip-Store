@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledField, StyledInput } from "./StyledInput";
+import * as S from "./StyledInput";
 import { Text } from "../../../Texts/Text/Text";
 
 export const Input = ({
@@ -14,17 +14,17 @@ export const Input = ({
   ...props
 }) => {
   return (
-    <StyledField $width={width} $version={version} $sizeH={sizeH}>
+    <S.Field $width={width} $version={version} $sizeH={sizeH}>
       <Text variant="x-small" bold={true}>
         <label htmlFor={id}>{children}</label>
       </Text>
-      <StyledInput
+      <S.Input
         $variant={variant}
         $height={height}
         id={id}
         placeholder={plh}
         {...props}
       />
-    </StyledField>
+    </S.Field>
   );
 };
