@@ -3,8 +3,7 @@ import { Home } from "../src/pages/Home/Home";
 import { Products } from "../src/pages/Products/Products";
 import { Categories } from "../src/pages/Categories/Categories";
 import { Requests } from "../src/pages/Requests/Requests";
-import { Cart } from "../src/components/Cart/Cart";
-import { Card } from "../src/Card/Card";
+import { Carousel } from "../src/components/Carousel/Carousel";
 
 export const AppRoutes = () => {
   return (
@@ -14,9 +13,7 @@ export const AppRoutes = () => {
         <Route path="/produtos" element={<Products />} />
         <Route path="/categorias" element={<Categories />} />
         <Route path="/pedidos" element={<Requests />} />
-        {/* Rotas de testes */}\
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/card" element={<Card />} />
+        <Route path="/carrossel" element={<Carousel />} />
       </Routes>
     </BrowserRouter>
   );

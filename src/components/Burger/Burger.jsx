@@ -39,7 +39,6 @@ export const Burger = ({ children }) => {
         <S.CenterLine />
         <S.BottomLine />
       </S.Burger>
-      {/* <S.Clone className={isOpen ? "open" : ""} /> */}
 
       <S.Navigation ref={navArea} className={isOpen ? "open" : ""}>
         {children}

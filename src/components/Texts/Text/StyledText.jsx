@@ -63,4 +63,5 @@ export const StyledText = styled.p`
   }}
   font-weight: ${({ $bold }) => ($bold ? "bold" : "normal")};
   color: ${({ $color }) => $color};
+  text-decoration: ${({ $decoration }) => $decoration};
 `;

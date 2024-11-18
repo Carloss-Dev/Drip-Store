@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme/theme";
 
 // Elementos padrões do componente
@@ -60,14 +60,13 @@ const home = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    svg:nth-child(1) {
+    #responsive-search {
       display: none;
     }
     @media (max-width: ${theme.media.md}) {
       width: 18%;
       max-width: 8rem;
-      svg:nth-child(1) {
+      #responsive-search {
         display: block;
         color: ${theme.colors.lightGray2};
       }

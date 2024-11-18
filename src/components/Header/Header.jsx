@@ -9,10 +9,11 @@ import { Input } from "../Forms/Inputs/Input/Input";
 import { Navbar } from "../Navbar/Navbar";
 import { Text } from "../Texts/Text/Text";
 import { Button } from "../Forms/Button/Button";
-import { Burger } from "..//Burger/Burger";
+import { Burger } from "../Burger/Burger";
+import { Cart } from "../Cart/Cart";
 
-import Logo from "../../../public/Logo";
-import CartIcon from "../../../public/Cart-Icon";
+import Logo from "../../../public/ICons/Logo";
+import CartIcon from "../../../public/ICons/Cart-Icon";
 
 const links = [
   {
@@ -73,7 +74,7 @@ export const Header = ({ variant }) => {
             id="responsive-search"
             onClick={() => setIsOpen(!isOpen)}
           />
-          {/* <CartIcon /> */}
+          <Cart />
         </S.iconContainer>
       </S.MainContainer>
       <S.AnimatedContainer className={isOpen ? "open" : ""}>

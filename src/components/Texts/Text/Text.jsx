@@ -7,9 +7,16 @@ export const Text = ({
   variant = "medium",
   color,
   style,
+  decoration,
 }) => {
   return (
-    <StyledText $variant={variant} $bold={bold} $color={color} style={style}>
+    <StyledText
+      $variant={variant}
+      $bold={bold}
+      $color={color}
+      style={style}
+      $decoration={decoration}
+    >
       {children}
     </StyledText>
   );

@@ -1,11 +1,13 @@
 import styled, { css } from "styled-components";
+import { theme } from "../../theme/theme";
 
 export const MainCartContainer = styled.div``;
 export const PriceContainer = styled.div``;
+export const DivImage = styled.div``;
+export const DivText = styled.div``;
 
 const CartCard = css`
   align-self: center;
-  border: 1pt solid red;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -14,14 +16,36 @@ const CartCard = css`
   height: 9.3rem;
 
   ${MainCartContainer} {
-    border: 1pt solid green;
     height: 70%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    ${DivImage} {
+      width: 35%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: ${theme.colors.lightSky};
+      border-radius: 5px;
+      img {
+        width: 85%;
+      }
+    }
+    ${DivText} {
+      height: 100%;
+      width: 65%;
+    }
   }
   ${PriceContainer} {
-    border: 1pt solid blue;
     height: 30%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
   }
 `;
 
