@@ -51,4 +51,6 @@ export const StyledTitle = styled.h3`
     }
   }}
   font-weight: ${({ $bold }) => ($bold ? "bold" : "normal")};
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
 `;

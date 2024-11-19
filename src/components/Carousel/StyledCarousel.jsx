@@ -1,8 +1,38 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-export const CarouselItem = styled.div``;
 export const TextContainer = styled.div``;
 export const ImageContainer = styled.div``;
+export const DivContainer = styled.div``;
+
+const slideInFromLeft = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`;
+
+// Animação quando o item entra da direita para a esquerda
+const slideInFromRight = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`;
+
+export const CarouselItem = styled.div`
+  animation: ${({ $animate, $direction }) =>
+    $animate
+      ? css`
+          ${$direction === "left"
+            ? slideInFromRight
+            : slideInFromLeft} .8s ease-in-out forwards
+        `
+      : "none"};
+`;
 
 const home = css`
   align-self: center;
@@ -24,14 +54,29 @@ const home = css`
 
     ${TextContainer} {
       border: 1pt solid blue;
-      width: 50%;
+      width: 40%;
       height: 100%;
+      gap: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     }
 
     ${ImageContainer} {
       height: 100%;
-      width: 40%;
+      width: 50%;
       border: 1pt solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        transform: rotate(-20deg);
+      }
+    }
+    ${DivContainer} {
+      height: 100%;
+      width: 10%;
     }
   }
 `;
