@@ -8,6 +8,11 @@ const large = css`
   line-height: 38px;
   letter-spacing: 0.75px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 20px;
+    line-height: 32px;
+  }
 `;
 
 const medium = css`
@@ -17,6 +22,11 @@ const medium = css`
   line-height: 34px;
   letter-spacing: 0.75px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 16px;
+    line-height: 28px;
+  }
 `;
 
 const small = css`
@@ -26,6 +36,10 @@ const small = css`
   line-height: 28px;
   letter-spacing: 0.75px;
   text-align: left;
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 14px;
+    line-height: 24px;
+  }
 `;
 
 const xSmall = css`
@@ -35,6 +49,11 @@ const xSmall = css`
   line-height: 22px;
   letter-spacing: 0.25px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 12px;
+    line-height: 22px;
+  }
 `;
 
 const tinny = css`
@@ -44,6 +63,11 @@ const tinny = css`
   line-height: 18px;
   letter-spacing: 0.5px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 12px;
+    line-height: 22px;
+  }
 `;
 
 export const StyledText = styled.p`

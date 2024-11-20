@@ -18,6 +18,14 @@ export const Carousel = ({ variant = "home" }) => {
     }
   }, [animate]);
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
   const carouselItems = [
     {
       id: 1,
@@ -42,21 +50,32 @@ export const Carousel = ({ variant = "home" }) => {
     },
   ];
 
-  const goToPrevious = () => {
-    setDirection("left");
+  function goToPrevious() {
+    // setDirection("left");
     setAnimate(true);
     const newIndex =
       currentIndex === 0 ? carouselItems.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-  };
+  }
 
-  const goToNext = () => {
+  function goToNext() {
     setDirection("right");
     setAnimate(true);
     const newIndex =
       currentIndex === carouselItems.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  };
+  }
+
+  function goToDot(index) {
+    if (currentIndex > index) {
+      setDirection("left");
+    } else {
+      setDirection("right");
+    }
+
+    setAnimate(true);
+    setCurrentIndex(index);
+  }
 
   return (
     <S._Carousel $variant={variant}>
@@ -82,12 +101,45 @@ export const Carousel = ({ variant = "home" }) => {
         <S.ImageContainer>
           <img src={carouselItems[currentIndex].image} alt="" />
         </S.ImageContainer>
+
         <S.DivContainer>
           <Ornament />
         </S.DivContainer>
       </S.CarouselItem>
 
       <button onClick={goToNext}>⟩</button>
+
+      <S.DotContainer>
+        {carouselItems.map((dot, index) => (
+          <li
+            key={dot.id}
+            onClick={() => goToDot(index)}
+            className={index === currentIndex ? "active" : ""}
+          ></li>
+        ))}
+      </S.DotContainer>
     </S._Carousel>
   );
 };
+
+{
+  /* <S.TextContainer>
+          <Text variant="small" bold={true} color={theme.colors.warning}>
+            {carouselItems[currentIndex].subText}
+          </Text>
+          <Title variant="large" bold={true} width="47rem">
+            {carouselItems[currentIndex].mainText}
+          </Title>
+          <Text> {carouselItems[currentIndex].desc}</Text>
+          <Button width="22rem" height="4.8rem">
+            Ver Ofertas
+          </Button>
+        </S.TextContainer>
+        <S.ImageContainer>
+          <img src={carouselItems[currentIndex].image} alt="" />
+        </S.ImageContainer>
+
+        <S.DivContainer>
+          <Ornament />
+        </S.DivContainer> */
+}

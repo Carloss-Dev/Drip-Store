@@ -8,6 +8,11 @@ const large = css`
   line-height: 66px;
   letter-spacing: 0.9999998807907104px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 48px;
+    line-height: 50px;
+  }
 `;
 
 const medium = css`
@@ -17,6 +22,10 @@ const medium = css`
   line-height: 50px;
   letter-spacing: 0.9999998807907104px;
   text-align: left;
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 32px;
+    line-height: 36px;
+  }
 `;
 
 const small = css`
@@ -26,6 +35,11 @@ const small = css`
   line-height: 36px;
   letter-spacing: 1px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 `;
 
 const xSmall = css`
@@ -35,6 +49,11 @@ const xSmall = css`
   line-height: 36px;
   letter-spacing: 2px;
   text-align: left;
+
+  @media (max-width: ${theme.media.xs}) {
+    font-size: 22px;
+    line-height: 34px;
+  }
 `;
 
 export const StyledTitle = styled.h3`
