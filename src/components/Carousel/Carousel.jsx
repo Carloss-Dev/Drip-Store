@@ -5,6 +5,7 @@ import { Text } from "../Texts/Text/Text";
 import { theme } from "../../theme/theme";
 import { Title } from "../Texts/Title/Title";
 import { Button } from "../Forms/Button/Button";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 export const Carousel = ({ variant = "home" }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -18,13 +19,13 @@ export const Carousel = ({ variant = "home" }) => {
     }
   }, [animate]);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      goToNext();
-    }, 3000);
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     goToNext();
+  //   }, 2000);
 
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+  //   return () => clearInterval(interval);
+  // }, [currentIndex]);
 
   const carouselItems = [
     {
@@ -51,7 +52,7 @@ export const Carousel = ({ variant = "home" }) => {
   ];
 
   function goToPrevious() {
-    // setDirection("left");
+    setDirection("left");
     setAnimate(true);
     const newIndex =
       currentIndex === 0 ? carouselItems.length - 1 : currentIndex - 1;
@@ -79,7 +80,9 @@ export const Carousel = ({ variant = "home" }) => {
 
   return (
     <S._Carousel $variant={variant}>
-      <button onClick={goToPrevious}>⟨</button>
+      <S.ArrowLeft onClick={goToPrevious}>
+        <Icon icon="weui:arrow-filled" width="80%" />
+      </S.ArrowLeft>
 
       <S.CarouselItem
         $animate={animate}
@@ -99,15 +102,19 @@ export const Carousel = ({ variant = "home" }) => {
           </Button>
         </S.TextContainer>
         <S.ImageContainer>
-          <img src={carouselItems[currentIndex].image} alt="" />
-        </S.ImageContainer>
+          <S.DivContainer1>
+            <img src={carouselItems[currentIndex].image} alt="" />
+          </S.DivContainer1>
 
-        <S.DivContainer>
-          <Ornament />
-        </S.DivContainer>
+          <S.DivContainer2>
+            <Ornament />
+          </S.DivContainer2>
+        </S.ImageContainer>
       </S.CarouselItem>
 
-      <button onClick={goToNext}>⟩</button>
+      <S.ArrowRight onClick={goToNext}>
+        <Icon icon="weui:arrow-filled" width="80%" />
+      </S.ArrowRight>
 
       <S.DotContainer>
         {carouselItems.map((dot, index) => (
