@@ -6,8 +6,8 @@ export const ImageContainer = styled.div``;
 export const DotContainer = styled.div``;
 export const DivContainer1 = styled.div``;
 export const DivContainer2 = styled.div``;
-export const ArrowLeft = styled.div``;
-export const ArrowRight = styled.div``;
+export const ArrowLeft = styled.button``;
+export const ArrowRight = styled.button``;
 
 const slideInFromLeft = keyframes`
   0% {
@@ -41,6 +41,8 @@ export const CarouselItem = styled.div`
 const home = css`
   align-self: center;
   width: 100%;
+  grid-column: 1 / 13;
+
   height: 68.1rem;
   gap: 10px;
   display: grid;

@@ -11,21 +11,25 @@ export const Carousel = ({ variant = "home" }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [animate, setAnimate] = React.useState(false);
   const [direction, setDirection] = React.useState("left");
+  const [isDisable, setIsDisable] = React.useState(false);
 
   React.useEffect(() => {
     if (animate) {
-      const timer = setTimeout(() => setAnimate(false), 800);
+      const timer = setTimeout(() => {
+        setAnimate(false);
+        setIsDisable(false);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [animate]);
 
-  // React.useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     goToNext();
-  //   }, 2000);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 2500);
 
-  //   return () => clearInterval(interval);
-  // }, [currentIndex]);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const carouselItems = [
     {
@@ -49,9 +53,17 @@ export const Carousel = ({ variant = "home" }) => {
       desc: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.",
       image: "../../../public/Slides/slide3.png",
     },
+    {
+      id: 4,
+      mainText: "Uepa 🔥",
+      subText: "Melhores ofertas personalizadas",
+      desc: "Consequat culpa exercitation mollit nisi excepteur do do tempor laboris eiusmod irure consectetur.",
+      image: "../../../public/Slides/slide4.png",
+    },
   ];
 
   function goToPrevious() {
+    setIsDisable(true);
     setDirection("left");
     setAnimate(true);
     const newIndex =
@@ -60,6 +72,7 @@ export const Carousel = ({ variant = "home" }) => {
   }
 
   function goToNext() {
+    setIsDisable(true);
     setDirection("right");
     setAnimate(true);
     const newIndex =
@@ -68,11 +81,7 @@ export const Carousel = ({ variant = "home" }) => {
   }
 
   function goToDot(index) {
-    if (currentIndex > index) {
-      setDirection("left");
-    } else {
-      setDirection("right");
-    }
+    setDirection(currentIndex > index ? "left" : "right");
 
     setAnimate(true);
     setCurrentIndex(index);
@@ -80,7 +89,7 @@ export const Carousel = ({ variant = "home" }) => {
 
   return (
     <S._Carousel $variant={variant}>
-      <S.ArrowLeft onClick={goToPrevious}>
+      <S.ArrowLeft onClick={goToPrevious} disabled={isDisable}>
         <Icon icon="weui:arrow-filled" width="80%" />
       </S.ArrowLeft>
 
@@ -112,7 +121,7 @@ export const Carousel = ({ variant = "home" }) => {
         </S.ImageContainer>
       </S.CarouselItem>
 
-      <S.ArrowRight onClick={goToNext}>
+      <S.ArrowRight onClick={goToNext} disabled={isDisable}>
         <Icon icon="weui:arrow-filled" width="80%" />
       </S.ArrowRight>
 
@@ -128,25 +137,3 @@ export const Carousel = ({ variant = "home" }) => {
     </S._Carousel>
   );
 };
-
-{
-  /* <S.TextContainer>
-          <Text variant="small" bold={true} color={theme.colors.warning}>
-            {carouselItems[currentIndex].subText}
-          </Text>
-          <Title variant="large" bold={true} width="47rem">
-            {carouselItems[currentIndex].mainText}
-          </Title>
-          <Text> {carouselItems[currentIndex].desc}</Text>
-          <Button width="22rem" height="4.8rem">
-            Ver Ofertas
-          </Button>
-        </S.TextContainer>
-        <S.ImageContainer>
-          <img src={carouselItems[currentIndex].image} alt="" />
-        </S.ImageContainer>
-
-        <S.DivContainer>
-          <Ornament />
-        </S.DivContainer> */
-}
